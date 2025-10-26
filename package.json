@@ -4,13 +4,15 @@
   "description": "API backend complète pour NEOSOFT.dev avec Hono.js et Cloudflare D1",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler publish",
-    "db:create": "wrangler d1 create neosoft_db",
-    "db:migrate": "wrangler d1 execute neosoft_db --file=./src/db/schema.sql",
-    "db:migrate:local": "wrangler d1 execute neosoft_db --local --file=./src/db/schema.sql",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy",
+    "db:create": "npx wrangler d1 create neosoft_db",
+    "db:migrate": "npx wrangler d1 execute neosoft_db --file=./src/db/schema.sql",
+    "db:migrate:local": "npx wrangler d1 execute neosoft_db --local --file=./src/db/schema.sql",
     "build": "tsc",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "auth": "npx wrangler login",
+    "whoami": "npx wrangler whoami"
   },
   "keywords": [
     "hono",
