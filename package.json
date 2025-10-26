@@ -1,0 +1,34 @@
+{
+  "name": "neosoft-backend",
+  "version": "1.0.0",
+  "description": "API backend complète pour NEOSOFT.dev avec Hono.js et Cloudflare D1",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler publish",
+    "db:create": "wrangler d1 create neosoft_db",
+    "db:migrate": "wrangler d1 execute neosoft_db --file=./src/db/schema.sql",
+    "db:migrate:local": "wrangler d1 execute neosoft_db --local --file=./src/db/schema.sql",
+    "build": "tsc",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "hono",
+    "cloudflare-workers",
+    "d1",
+    "typescript",
+    "api",
+    "neosoft"
+  ],
+  "author": "NEOSOFT.dev",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241011.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "wrangler": "^3.78.0"
+  },
+  "dependencies": {
+    "hono": "^4.6.0"
+  }
+}

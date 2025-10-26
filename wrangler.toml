@@ -1,0 +1,23 @@
+name = "neosoft-backend"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[vars]
+ADMIN_TOKEN = "neosoft_admin_secret_token_2025"
+ALLOWED_ORIGIN = "https://neosoft.dev"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "neosoft_db"
+# database_id sera généré automatiquement lors de la création avec: wrangler d1 create neosoft_db
+
+[build]
+command = "npm run build"
+
+# Configuration pour le développement local
+[env.development]
+vars = { ADMIN_TOKEN = "dev_token_local", ALLOWED_ORIGIN = "http://localhost:4321" }
+
+# Variables d'environnement pour la production
+[env.production]
+vars = { ADMIN_TOKEN = "production_secret_token", ALLOWED_ORIGIN = "https://neosoft.dev" }
